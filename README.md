@@ -9,9 +9,9 @@ This repo is as landing page for presentation resources, information, known issu
 
 ## Contact Information
 
-Email: `ryan.wood@guidepointsecurity.com`
-Splunk UserGroups Slack: `@TheWoodRanger`
-Twitter: `@TheWoodRanger`
+* Email: `ryan.wood@guidepointsecurity.com`
+* Splunk UserGroups Slack: `@TheWoodRanger`
+* Twitter: `@TheWoodRanger`
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
