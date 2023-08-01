@@ -80,7 +80,6 @@ Use the key combination `CTRL/CMD + Shift + F` within your Splunk search page to
 > 
 > "Utilities" are ready-to-run full SPL reports, whereas "examples" are meant to highlight methodology that can be adapted for usage as needed.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 | Prefix | Location |
 | ---- | ----- |
@@ -90,9 +89,101 @@ Use the key combination `CTRL/CMD + Shift + F` within your Splunk search page to
 | Tips | Tips & Tricks Section of Addendum |
 
 
-**List will be posted to github soon as I figure out the formatting for them.**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+## Examples Included in Slides by Level/Type
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Tips & Tricks
+
+Tips - Preservation of Specific Field Values within Foreach Using...
+
+- Direct comparison of field Name
+- `| eval IN` on field Name
+- Direct comparison of field Value
+- Regex pattern matching on field Name
+- Regex pattern matching on field Value
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Level 1 Examples
+
+| Location | Description |
+| --- | --- |
+| L1 | Conversion of repetitive eval logic to foreach |
+  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Level 2 Examples
+
+| Location | Description |
+| --- | --- |
+| L2 | Universal Pattern for setting Zero-Length Fields to Null |
+| L2A | Pattern for Assigning Zero-Length Fields a "String" value |
+| L2 | Prefix field values with field names |
+| L2 | Regex replacement to remove all non-ascii characters |
+| L2 | Regex replacement to add escape backslash to special characters (if not already escaped) |
+| L2 | Multivalue: Concatenate/Split MV fields with universal pattern |
+| L2A | Multivalue: Limit to first 5 values in multivalue list |
+| L2A | Multivalue: Prep Results for CSV Export to retain Newline |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Level 3 Examples
+
+| Location | Description |
+| --- | --- |
+| L3 | Compilation: Which fields are not null? |
+| L3 | Compilation: Which fields are over a certain length? |
+| L3 | Compilation:  fields are the longest/what's the longest value for a field? |
+| L3 | Compilation: Which fields contain values matching a reference list of pasted values (two versions) |
+| L3 | Compilation: Which fields differ within a group? |
+| L3 | Output data in Standard Format (JSON) |
+| L3 | Consolidate many columns to a single column for readability |
+| L3A | Consolidate - REST - props.conf Compilation of Properties |
+| L3A | Consolidate - REST - Compile Multiple Endpoints Together for Display |
+| L3A | Add copies of result data with adjusted timestamps for testing, data |
+| L3A | Parse Raw Event CSV-delimited field="value" Events Manually |
+| L3A | Numeric Field Value Increase/Decrease Over Rows BY Group |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Level 4 Examples
+
+| Location | Description |
+| --- | --- |
+| L4 | Use MATCHSTR to generate timestamps (Generate Start/End Timestamps Using MATCHSTR) |
+| L4 | Identify numeric fields less than a Dynamic Threshold BY group |
+| L4 | Generate zScores for Anomaly Detection, present as timechart |
+| L4A | `{field}` Reference Substitution Example with Splunk instrumentation |
+| L4A | Foreach to Clean Fields of Special Characters, Handle Preparation of LDAP Records for Summary Index (Advanced) |
+| L4A | Using Foreach for Masking of Data while Maintaning Cardinality (Advanced) |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Utility Report Queries
+
+| Location | Description |
+| --- | --- |
+| Utility | SPL Generation: Create a `\| where match()` OR `\| search` condition dynamically from pasted input. |
+| Utility | SPL Generation:  `\| eval` Lines from delimited field-value pairs |
+| Utility | SPL Generation:   `TERM()` Filter Condition for ipv4 strings from table data |
+| Utility | SPL Generation: Dynamic SID filter of introspection perprocess data using internal scheduler data for job performance reporting. |
+| Utility | Check Datamodel Fields for Null Distribution |
+| Utility | Check if two sets of search results are the same for validation. |
+| Utility | REST - Compile Search Job Messages BY Search ID |
+| Utility | Splunk Instrumentation Health Monitor View |
+| Utility | REST - KVstore Collections Configuration Report |
+| Utility | REST - Serverclass Deployment Server Assignment Breakout |
+| Utility | REST - DS Deployment Client App Assignment Breakout |
+| Utility | REST - Savedsearches Properties Generation |
+| Utility | Extract \$token\$ Token References from XML Dashboards, Validate References |
+| Utility | Indexer Performance - Response times of Indexer Layer |
+| Utility | Search Scheduler Jobs Counts by Status Comparison of Current Period to Previous Weeks |
+| Utility | View all Field Extraction Derivations, Field Object Definitions |
+| Utility | All Configured Datamodel Fields |
+| Utility | Fieldsummary Summarization View of Data, Sampling and Top Values |
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -103,6 +194,20 @@ Any issues or problems with SPL queries, snippets, references, or information in
 
 Please reach out with any feedback or problems discovered at the [Contact Information](#contact-information) above.
 
+### Open Issues Tracking
+
+1. [ ] Overall Presentation - a number of slides have screenshots which appear to have resolution issues, re-capture of these will happen in a future version.
+
+2. [ ] Utility `Extract $token$ Token References from XML Dashboards` returns TokenReferences that are inserting search results/table values. (Open)
+   - SPL logic needs to be updated to avoid extracting non-token references.
+
+3. [ ] Utility `Indexer Performance - Response times of Indexer Layer` needs to be reviewed to confirm behavior.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Known Issues Changelog
+<details>
+<summary>Known Issues Changelog</summary>
 
 ```md
 # 2023.07.31 Identified Issues
@@ -150,6 +255,7 @@ Please reach out with any feedback or problems discovered at the [Contact Inform
    - Updated the labeling and descriptions for these to more clearly point to the Fieldsummary presentation resources. 
 
 ```
+</details>
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
