@@ -2,43 +2,102 @@
 
 This repo is as landing page for presentation resources, information, known issues, and updates from the Splunk .Conf 2023 session *Maximizing Splunk SPL: Foreach and the Power of Iterative, Templatized Evals* given by Ryan Wood.
 
+[Link to presentation recording from .Conf 2023](https://conf.splunk.com/files/2023/recordings/PLA1881C.mp4)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Contact Information
+
+Email: `ryan.wood@guidepointsecurity.com`  
+Splunk UserGroups Slack: `@TheWoodRanger`  
+Twitter: `@TheWoodRanger`
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Table of Contents
+
+- [Maximizing Splunk SPL: Foreach and the Power of Iterative, Templatized Evals - Presentation Resources \& Information](#maximizing-splunk-spl-foreach-and-the-power-of-iterative-templatized-evals---presentation-resources--information)
+    - [Contact Information](#contact-information)
+  - [Table of Contents](#table-of-contents)
+- [Presentation Slide Deck Resources \& Materials](#presentation-slide-deck-resources--materials)
+  - [*A Note on Copying SPL from the PDF*](#a-note-on-copying-spl-from-the-pdf)
+  - [Changelog of PDF Slide Deck](#changelog-of-pdf-slide-deck)
+  - [List of Examples, Use cases, Utilities, Reference SPL Within Slides](#list-of-examples-use-cases-utilities-reference-spl-within-slides)
+  - [Known Issues in Slides References](#known-issues-in-slides-references)
+- [Other Presentations I want to Recommend](#other-presentations-i-want-to-recommend)
+  - [**Presentations - Query Writing and Optimization**](#presentations---query-writing-and-optimization)
+  - [Presentations - Admin, Developer, Management](#presentations---admin-developer-management)
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Contact Information
-
-* Email: `ryan.wood@guidepointsecurity.com`
-* Splunk UserGroups Slack: `@TheWoodRanger`
-* Twitter: `@TheWoodRanger`
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-## Downloadable Presentation Slide Deck
+# Presentation Slide Deck Resources & Materials
 
 Presentation slides will be updated as issues are identified or additional functionality is made available, see below link for latest version.
 
-Current Version: 1.0
+**Current Version: 2.0** - Link: [Slide Deck](PLA1881C%20-%20Foreach%20SPL%20Conf%20Presentation%20-%20v2.0.pdf)
 
-Link: `<link will be posted July 31st, 2023>`
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## *A Note on Copying SPL from the PDF*
+
+PDFs do not preserve whitespace when copying text, so while you can copy all of the queries within these slides, they won't stay formatted.
+
+Use the key combination `CTRL/CMD + Shift + F` within your Splunk search page to format the query.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Changelog of Slide Deck
+## Changelog of PDF Slide Deck
 
-- v1.0 - Presented at .Conf, available on Github July 31st 2023.
+<details>
+<summary>v2.0 - 2023.07.31</summary>
+
+>  - Updated version of Slide Deck with example expansions, issue corrections, and screenshots added in majority of addendum.
+>  - Expanded Utility slide references and descriptions for majority of addendum.
+>  - Removed Utility slide `Check for Events with Fields Extracted as Zero-Length` due to overlap with existing references and low benefit ratio for performance cost.
+>  - Reordered Level 3 Addendum Slides
+>  - Moved Level 3 Addendum Examples Slide `Compile Search Job Messages BY Search ID` to Utility section of Addendum.
+>  - Added new Tips & Tricks section to addendum
+>  - Added new `Generate SPL Using SPL` 4 slide section to Utilities
+>  - Renamed Level 3 Addendum Slide `Show field value change increase/decrease over time` to `Numeric Field Value Increase/Decrease Over Rows BY Group`
+</details>
+
+<details>
+<summary>v1.0 - 2023.07.18</summary>
+
+>  - Slides as Presented at .Conf 2023. Version available on Splunk Conf Website.
+</details>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## List of Examples, Use cases, Utilities, Reference SPL Within Slides
+
+
+> This serves as a high-level list of the SPL references included within the slide deck. Items are prefixed to notate location in slides.
+> 
+> "Utilities" are ready-to-run full SPL reports, whereas "examples" are meant to highlight methodology that can be adapted for usage as needed.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+| Prefix | Location |
+| ---- | ----- |
+| L# | Level # Example |
+| L#A | *Addendum* Level # Example |
+| Utility | Utility Section of Addendum |
+| Tips | Tips & Tricks Section of Addendum |
+
+
+**List will be posted to github soon as I figure out the formatting for them.**
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Known Issues
+## Known Issues in Slides References
 
 Any issues or problems with SPL queries, snippets, references, or information included in presentation slides will be noted here.
 
@@ -46,20 +105,106 @@ Please reach out with any feedback or problems discovered at the [Contact Inform
 
 
 ```md
-No known issues have been identified at this time.
+# 2023.07.31 Identified Issues
+
+## 2023.07.31 - Open Issues
+
+1. Overall Presentation - a number of slides have screenshots which appear to have resolution issues, re-capture of these will happen in a future version.
+
+2. Utility `Extract $token$ Token References from XML Dashboards` returns TokenReferences that are inserting search results/table values. (Open)
+   - SPL logic needs to be updated to avoid extracting non-token references.
+
+3. Utility `Indexer Performance - Response times of Indexer Layer` needs to be reviewed to confirm behavior.
+
+
+
+## 2023.07.31 - Resolved Issues
+
+1. Addendum Example `Add copies of result data with adjusted timestamps for testing, data generation, event generation`
+   - Expanded SPL to fit direct usecase from audittrail, added screenshots to better illustrate usage 
+2. Addendum Example `Parse Raw Event CSV field="value" Events Manually`
+   - Expanded Example and Description information for this pattern to demonstrate usage.
+   - Confirmed this only works on key="value,key2="value2" format data. 
+3. Addendum Example `Show field value change increase/decrease over time`
+   - Expanded description, added example reference illustrations and improved query for readability. 
+
+4. Utility `REST - KVstore Collections Config Info`
+   - Expanded SPL to include additional fields for compilation - profiling and replication settings
+   - Added table output to clean up final state of report.
+5. Utility `REST - Serverclass DS Assignment Breakout`
+   - Expanded query to compile deployment app properties into single column
+   - Updated SPL logic to add additional fields, handle wildcard table output for any new changes made to serverclass in future splunk versions. 
+6. Utility `REST - DeploymentClient App Assignment Breakout`
+   - SPL query needed to be updated to address syntax issues within foreach command eval logic.
+   - Expanded output to include: Average PhoneHome Time, Management Port, Splunk Build
+7. Utility `Extract $token$ Token References from XML Dashboards`
+   - Updated SPL to add additional tokenReferences handling logic to avoid incorrect reporting.
+   - Expanded SPL output to clean up final table state, provide easier insight. 
+8. Utility `Search Scheduler Job Breakout`
+   - Total revamp of slides presenting this utility. 
+   - Added multiple versions of visualization configuration references for output
+   - Updated SPL to better identify Step 1 Step 2 query functionality.
+   - Added full writeup slide to explain what utility query is doing.
+9. Utilities for `FieldSummary/Data Analysis Presentation Utilities`
+   - Added dedicated slides for demonstrating these utilities
+   - Updated the labeling and descriptions for these to more clearly point to the Fieldsummary presentation resources. 
+
 ```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# All other information will be updated on this github before/on July 31st - I didn't quite finish the additional references and information before .Conf.
+# Other Presentations I want to Recommend
 
-Sorry about the delay! Look forward to:
+These are some other presentations that I've found particularly beneficial or filled with useful information. This is by no means exhaustive, but it's my point of perspective on some great sessions.
 
-* Other Splunk Presentations, References I recommend (not comprehensive)
-* Additional Resources, Utilities, References
-  * Strategies to preserve specific field values while using universal pattern foreach.
-  * Optimization Strategies for the `| foreach` Command
-  * Miscellaneous SPL Tips and References
-* Updates and expanded usecases/examples
+Past Conf sessions not currently available on the Conf website can be accessed via the Conf Archive app (shoutout to Lily Lee):
+<https://splunkbase.splunk.com/app/3330>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## **Presentations - Query Writing and Optimization**
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**On the topic of term efficiency, search optimization (you definitely should learn this stuff!):**
+
+- [PLA1089C - TSTATS and PREFIX, How to get the most out of your lexicon with walklex, tstats, indexed fields, PREFIX, TERM](https://conf.splunk.com/files/2020/slides/PLA1089C.pdf)
+- [PLA1466B - Fields, Indexed Tokens, and You](https://conf.splunk.com/files/2022/slides/PLA1466B.pdf)
+- [PLA1258C - I Am Speed! Searching on Your Own TERMs With Simple Techniques That 99% Aren’t Using!](https://conf.splunk.com/files/2023/slides/PLA1258C.pdf)
+- [TRU1133B - Clara-Fication: More Tstats for Your Buckets](https://conf.splunk.com/files/2021/slides/TRU1133B.pdf)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**On the topic of understanding job performance:**
+- [TRU1143C - Clara-fication: Job Inspector](https://conf.splunk.com/files/2020/slides/TRU1143C.pdf)
+- [PLA1162B - Clara-Fication: Finding and Improving Expensive Searches](https://conf.splunk.com/files/2022/slides/PLA1162B.pdf)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+**On the topic of Security Usecase/SPL Techniques:**
+- [PLA1528B - Master Joining Datasets Without Using Join](https://conf.splunk.com/files/2022/slides/PLA1528B.pdf)
+- [PLA1261B - Beyond REGULAR Regular Expressions v3.0](https://conf.splunk.com/files/2022/slides/PLA1261B.pdf)
+- [PLA1547B - Lighter, Faster and Calmer Ways to Learn Splunk® Enterprise With | makeresults, | gentimes and Some Random()% Too!](https://conf.splunk.com/files/2023/slides/PLA1547B.pdf)
+- [TRU1192B - Getting To Know Your Data](https://conf.splunk.com/files/2021/slides/TRU1192B.pdf)
+- [Turning Security Use Cases into SPL](https://static.rainfocus.com/splunk/splunkconf18/sess/1523489574149001lr6z/finalPDF/SEC1583_TurningSecurityUseCases_Final_1538510573435001VmSg.pdf)
+- Security Ninjutsu Series - also available via [David Veuve's website](https://www.davidveuve.com/presentations.html)
+  - Security Ninjutsu Part Four
+  - Security Ninjutsu Part Five
+  - Security Ninjutsu Part Six
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Presentations - Admin, Developer, Management
+
+- [DEV1480C - Using Splunk® Cloud Platform ACS Through CI/CD](https://conf.splunk.com/files/2023/slides/DEV1480C.pdf)
+- [DEV1387B - Deep Dive Into the Custom Search Protocol v2: How t Implement a Custom Search Command](https://conf.splunk.com/files/2021/slides/DEV1387B.pdf)
+- [PLA1577B - Dashboarding Wowzas! Top Tips for Making Your Dashboards Awesome!](https://conf.splunk.com/files/2023/slides/PLA1577B.pdf)
+- [PLA1135B - Administrators Anonymous IV: Splunk Best Practices and Useful Tricks I Learned the Hard Way](https://conf.splunk.com/files/2022/slides/PLA1135B.pdf)
+- [PLA1765C - Git Good With Splunk: Commit to Config Versioning and Deployment Automation for Your Splunk Infrastructure](https://conf.splunk.com/files/2023/slides/PLA1765C.pdf)
+- [PLA1265B - Maximize Your Splunk Value With Workload Management](https://conf.splunk.com/files/2023/slides/PLA1265B.pdf)
+
