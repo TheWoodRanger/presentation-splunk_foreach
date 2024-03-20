@@ -4,6 +4,8 @@ This repo is as landing page for presentation resources, information, known issu
 
 [Link to presentation recording from .Conf 2023](https://conf.splunk.com/files/2023/recordings/PLA1881C.mp4)
 
+**Current Version of Slides: 2.2** - Link: [Slide Deck](PLA1881C%20-%20Foreach%20SPL%20Conf%20Presentation%20-%20v2.2.pdf)
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Contact Information
@@ -23,7 +25,17 @@ Twitter: `@TheWoodRanger`
   - [*A Note on Copying SPL from the PDF*](#a-note-on-copying-spl-from-the-pdf)
   - [Changelog of PDF Slide Deck](#changelog-of-pdf-slide-deck)
   - [List of Examples, Use cases, Utilities, Reference SPL Within Slides](#list-of-examples-use-cases-utilities-reference-spl-within-slides)
+  - [Examples Included in Slides by Level/Type](#examples-included-in-slides-by-leveltype)
+    - [Tips \& Tricks](#tips--tricks)
+    - [Level 1 Examples](#level-1-examples)
+    - [Level 2 Examples](#level-2-examples)
+    - [Level 3 Examples](#level-3-examples)
+    - [Level 4 Examples](#level-4-examples)
+    - [Utility Report Queries](#utility-report-queries)
   - [Known Issues in Slides References](#known-issues-in-slides-references)
+    - [Open Issues Tracking](#open-issues-tracking)
+    - [Known Issues Changelog](#known-issues-changelog)
+      - [2024.03.19 Change Notes](#20240319-change-notes)
 - [Other Presentations I want to Recommend](#other-presentations-i-want-to-recommend)
   - [**Presentations - Query Writing and Optimization**](#presentations---query-writing-and-optimization)
   - [Presentations - Admin, Developer, Management](#presentations---admin-developer-management)
@@ -36,7 +48,7 @@ Twitter: `@TheWoodRanger`
 
 Presentation slides will be updated as issues are identified or additional functionality is made available, see below link for latest version.
 
-**Current Version: 2.0** - Link: [Slide Deck](PLA1881C%20-%20Foreach%20SPL%20Conf%20Presentation%20-%20v2.0.pdf)
+**Current Version of Slides: 2.2** - Link: [Slide Deck](PLA1881C%20-%20Foreach%20SPL%20Conf%20Presentation%20-%20v2.2.pdf)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -201,15 +213,46 @@ Please reach out with any feedback or problems discovered at the [Contact Inform
 2. [ ] Utility `Extract $token$ Token References from XML Dashboards` returns TokenReferences that are inserting search results/table values. (Open)
    - SPL logic needs to be updated to avoid extracting non-token references.
 
-3. [ ] Utility `Indexer Performance - Response times of Indexer Layer` needs to be reviewed to confirm behavior.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Known Issues Changelog
+
+#### 2024.03.19 Change Notes
+
+- v2.2 of the PDF Slide Deck includes a number of enhancements and SPL updates. Slides are marked with a note indicating changes on them.
+
+
 <details>
 <summary>Known Issues Changelog</summary>
 
 ```md
+# 2024.03.19 Issues Update
+
+## 2024.03.19 - Open Issues
+
+1. Overall Presentation - a number of slides have screenshots which appear to have resolution issues, re-capture of these will happen in a future version.
+
+2. Utility `Extract $token$ Token References from XML Dashboards` returns TokenReferences that are inserting search results/table values. (Open)
+   - SPL logic needs to be updated to avoid extracting non-token references.
+
+
+
+## 2024.03.19 - Resolved Issues
+
+1. Utility `Indexer Performance - Response times of Indexer Layer` needs to be reviewed to confirm behavior.
+   - Updated slides to include screenshots of this utility and match SPL formatting in other slides.
+
+2. Slide 80/124 - Level 2.2 Batch Regex Replacements Example - Corrected regex pattern to use negative lookbehind.
+
+3. Slide 138 - Level 3 Addendum Parse Raw Event CSV field="value" Events Manually - SPL pattern updated
+
+4. Slide 154 - REST - Compile Search Job Messages BY Search ID - moved to Utility section
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 # 2023.07.31 Identified Issues
 
 ## 2023.07.31 - Open Issues
